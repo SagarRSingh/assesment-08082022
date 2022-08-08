@@ -13,7 +13,11 @@ export class EmployeeComponent{
     lastName:string='';
     age:number=0;
     email:string='';
-    selectedGender=null;
+    selectedGender='';
+    DOB:any;
+    addr1:string = '';
+    addr2:string = '';
+    pincode:number= 0;
 
 
     saveEmployee(form:NgForm){

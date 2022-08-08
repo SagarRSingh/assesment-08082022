@@ -3,8 +3,8 @@
     <div>
         <mat-form-field appearance="fill">
             <mat-label>First Name</mat-label>
-            <input matInput required name="firstName" [(ngModel)]="firstName">
-            
+            <input matInput required name="firstName" [(ngModel)]="firstName" >
+            <mat-error *ngIf="firstName == '' ">Enter First Name</mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Middle Name</mat-label>
@@ -13,44 +13,52 @@
         <mat-form-field appearance="fill">
             <mat-label>Last Name</mat-label>
             <input matInput name="lastName" [(ngModel)]="lastName" required>
+            <mat-error *ngIf="lastName == '' ">Enter Last Name</mat-error>
         </mat-form-field>
     </div>
 
     <div>
         <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Age </mat-label>
-              <input type="number" matInput min="1" max="100" name="Age">
+            <mat-label>Age </mat-label>
+            <input type="number" matInput min="1" max="100" name="Age" [(ngModel)]="age">
+            <mat-error *ngIf="age < 1 || age > 100">Range 1 to 100</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
             <mat-label>Gender</mat-label>
-            <mat-select [(value)]="selectedGender" required>
+            <mat-select name="selectedGender" [(ngModel)]="selectedGender" required>
+              <mat-option value="">Select Gender</mat-option>
               <mat-option value="male">Male</mat-option>
               <mat-option value="female">Female</mat-option>
             </mat-select>
+            <mat-error *ngIf="selectedGender == '' ">Gender Required</mat-error>
+
         </mat-form-field>
 
         <mat-form-field appearance="fill">
             <mat-label>Choose a date</mat-label>
-            <input matInput type="date">
+            <input type="date" name="DOB" [(ngModel)]="DOB" matInput required>
+						<mat-error *ngIf="DOB == null || DOB==''"> Date of Birth Required</mat-error>
         </mat-form-field>
     </div>
 
     <div>
         <mat-form-field appearance="fill">
             <mat-label>Address 1</mat-label>
-            <input matInput required>
+            <input name="addr1" [(ngModel)]="addr1" matInput required>
+						<mat-error *ngIf="addr1 == '' "> Address 1 is Required</mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Address 2</mat-label>
-            <input matInput>
+            <input name="addr2" [(ngModel)]="addr2" matInput>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Pincode</mat-label>
-            <input type="number" matInput required>
+            <input type="number" name="pincode" [(ngModel)]="pincode" matInput required min="99999" max="999999">
+						<mat-error *ngIf="pincode < 100000 || pincode > 999999"> Invalid Pincode </mat-error>
         </mat-form-field>
     </div>
 
-    <input type="submit" value="submit" class="btn">
+    <input type="submit" value="submit" class="primary-btn">
 
 </form>
