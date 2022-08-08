@@ -1,0 +1,22 @@
+<h3>This is Employee list</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>DOB</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of employeeList">
+            <td>{{ emp.firstName + ' ' + emp.middleNmae + ' ' + emp.lastName }}</td>
+            <td>{{ emp.age }}</td>
+            <td>{{ emp.gender }}</td>
+            <td>{{ emp.DOB | date:"DD/MM/YYYY"}}</td>
+            <td>{{ emp.addr1 + ' ' + emp.addr2 }}</td>
+        </tr>
+    </tbody>
+</table>
