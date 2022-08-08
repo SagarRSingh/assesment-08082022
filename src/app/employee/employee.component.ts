@@ -11,6 +11,7 @@ export class EmployeeComponent{
     firstName:string='';
     middleName:string='';
     lastName:string='';
+    age:number=0;
     email:string='';
     selectedGender=null;
 
