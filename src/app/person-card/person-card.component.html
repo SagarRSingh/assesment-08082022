@@ -1,0 +1,24 @@
+
+<div>
+  <div class="card mx-auto" style="width: 18rem;">
+    <h2>Employee's detail</h2>
+
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <a  href="#" class="btn btn-danger" queryParamsHandling="merge" routerLink='/employee-list'>Back 1</a> 
+        <a  href="#" class="btn btn-warning" (click)="preserve()">Back 2</a>
+        <button class="btn btn-success" (click)="preserve()"> back 3</button>
+      </li>
+      <li class="list-group-item">{{ person.Id }}</li>
+      <li class="list-group-item">{{ person.FirstName }}</li>
+      <li class="list-group-item">{{ person.Age }}</li>
+      <li class="list-group-item">{{ person.Gender }}</li>
+      <li class="list-group-item">{{ person.DOB }}</li>
+      <li class="list-group-item">{{ person.Address1 }}</li>
+      <li class="list-group-item">Req = {{ required }} </li>
+      <li class="list-group-item">Opt = {{ optional }} </li>
+      <li class="list-group-item">Query = {{ query }} </li>
+    </ul>
+  </div>
+  
+</div>

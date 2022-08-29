@@ -1,22 +1,37 @@
 <h3>This is Employee list</h3>
 
-<table>
+<table class="table">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>DOB</th>
-            <th>Address</th>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>DOB</th>
+          <th>Address</th>
+          <th>Link-req</th>
+          <th>Link-opt</th>
+          <th>Link-query</th>
+          <th>Required</th>
+          <th>Optional</th>
+          <th>Query </th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let emp of employeeList">
-            <td>{{ emp.firstName + ' ' + emp.middleNmae + ' ' + emp.lastName }}</td>
-            <td>{{ emp.age }}</td>
-            <td>{{ emp.gender }}</td>
-            <td>{{ emp.DOB | date:"DD/MM/YYYY"}}</td>
-            <td>{{ emp.addr1 + ' ' + emp.addr2 }}</td>
+          <td>{{emp.Id}}</td>
+          <td>{{ emp.FirstName + ' ' + emp.MiddleName + ' ' + emp.LastName }}</td>
+          <td>{{ emp.Age }}</td>
+          <td>{{ emp.Gender }}</td>
+          <td>{{ emp.DOB | date}}</td>
+          <td>{{ emp.Address1 + ' ' + emp.Address2 }}</td>
+          <td><a href="#" [routerLink]="['/person',emp.Id]">CTA</a></td>
+          <td><a href="#" [routerLink]="['/person',emp.Id, {code:'IMP'}]">CTA</a></td>
+          <td><a href="#" [routerLink]="['/person',emp.Id]" [queryParams]="emp">CTA</a></td>
+          <td><button class="btn btn-primary" (click)="navigateReq(emp.Id)">CTA</button> </td>
+          <td><button class="btn btn-secondary" (click)="navigateOpt(emp.Id,'IMP')">CTA</button> </td>
+          <td><button class="btn btn-success" (click)="navigateQuery(emp)">CTA</button> </td>
         </tr>
     </tbody>
 </table>
+<button class="btn btn-primary" (click)="mergeQuery()">Query Merge ecode</button>
